@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth min-w-80">
+    <html lang="en" className="scroll-smooth">
       <body
         className={twMerge(
           'flex h-[100dvh] w-full flex-col items-center gap-3 overflow-x-hidden bg-plum-900 text-white',
