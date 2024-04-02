@@ -11,7 +11,8 @@
     "dev:dashboard": "nx dev dashboard",
     "lint": "nx run-many -t lint",
     "lint:dashboard": "nx lint dashboard --verbose",
-    "test:unit": "nx run-many -t test:unit",
+    "test:unit": "nx affected -t test:unit",
+    "test:unit:all": "nx run-many -t test:unit",
     "test:unit:dashboard": "nx test dashboard --verbose",
     "prepare": "husky"
   },
