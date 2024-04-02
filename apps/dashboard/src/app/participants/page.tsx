@@ -11,7 +11,7 @@ import { Checkbox } from '../../components/atoms/Checkbox';
 import { Table } from '../../components/atoms/Table';
 
 export default function Participants() {
-  const participants = Array.from({ length: 6 }).map(() => ({
+  const participants = Array.from({ length: 7 }).map(() => ({
     code: '123456',
     name: 'John Doe',
     email: 'example@email.com',
@@ -20,7 +20,7 @@ export default function Participants() {
   }));
 
   return (
-    <main className="flex h-full w-full gap-4 flex-col">
+    <main className="flex items-start w-full flex-1 gap-4 flex-col overflow-hidden">
       <header className="flex w-full gap-3 items-center">
         <h1 className="text-2xl font-bold">Participants</h1>
 
@@ -37,14 +37,14 @@ export default function Participants() {
       <Table.Root>
         <Table.Header>
           <Table.Row>
-            <Table.Head>
+            <Table.Head className="w-16">
               <Checkbox />
             </Table.Head>
             <Table.Head>Code</Table.Head>
             <Table.Head>Participant</Table.Head>
             <Table.Head>Registration date</Table.Head>
             <Table.Head>Check-in date</Table.Head>
-            <Table.Head />
+            <Table.Head className="w-16" />
           </Table.Row>
         </Table.Header>
 
@@ -58,10 +58,12 @@ export default function Participants() {
               <Table.Cell>{participant.code}</Table.Cell>
 
               <Table.Cell>
-                <span className="flex flex-col">
-                  {participant.name}
+                <div className="flex flex-col gap-1">
+                  <span className="font-semibold text-white">
+                    {participant.name}
+                  </span>
                   <small>{participant.email}</small>
-                </span>
+                </div>
               </Table.Cell>
               <Table.Cell>{participant.registrationDate}</Table.Cell>
               <Table.Cell>{participant.checkInDate}</Table.Cell>
@@ -84,16 +86,16 @@ export default function Participants() {
                   <span>Page 1 of 11</span>
 
                   <section className="flex items-center gap-1.5">
-                    <button className="bg-black/20 border border-white/10 rounded-md p-1.5">
+                    <button className="bg-white/10 border border-white/10 rounded-md p-1.5">
                       <ChevronsLeft className="size-4" />
                     </button>
-                    <button className="bg-black/20 border border-white/10 rounded-md p-1.5">
+                    <button className="bg-white/10 border border-white/10 rounded-md p-1.5">
                       <ChevronLeft className="size-4" />
                     </button>
-                    <button className="bg-black/20 border border-white/10 rounded-md p-1.5">
+                    <button className="bg-white/10 border border-white/10 rounded-md p-1.5">
                       <ChevronRight className="size-4" />
                     </button>
-                    <button className="bg-black/20 border border-white/10 rounded-md p-1.5">
+                    <button className="bg-white/10 border border-white/10 rounded-md p-1.5">
                       <ChevronsRight className="size-4" />
                     </button>
                   </section>

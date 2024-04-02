@@ -10,10 +10,10 @@ const TableRoot = forwardRef<
   HTMLTableElement,
   HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-  <div className="relative w-full overflow-auto">
+  <div className="flex relative w-full flex-1 overflow-auto border border-white/10 rounded-lg">
     <table
       ref={ref}
-      className={twMerge('w-full caption-bottom text-sm', className)}
+      className={twMerge('w-full text-sm', className)}
       {...props}
     />
   </div>
@@ -26,38 +26,11 @@ const TableHeader = forwardRef<
 >(({ className, ...props }, ref) => (
   <thead
     ref={ref}
-    className={twMerge('[&_tr]:border-b', className)}
+    className={twMerge('h-[40px] leading-[40px] sticky top-0', className)}
     {...props}
   />
 ));
 TableHeader.displayName = 'TableHeader';
-
-const TableBody = forwardRef<
-  HTMLTableSectionElement,
-  HTMLAttributes<HTMLTableSectionElement>
->(({ className, ...props }, ref) => (
-  <tbody
-    ref={ref}
-    className={twMerge('[&_tr:last-child]:border-0', className)}
-    {...props}
-  />
-));
-TableBody.displayName = 'TableBody';
-
-const TableFooter = forwardRef<
-  HTMLTableSectionElement,
-  HTMLAttributes<HTMLTableSectionElement>
->(({ className, ...props }, ref) => (
-  <tfoot
-    ref={ref}
-    className={twMerge(
-      'border-t bg-muted/50 font-medium [&>tr]:last:border-b-0',
-      className
-    )}
-    {...props}
-  />
-));
-TableFooter.displayName = 'TableFooter';
 
 const TableRow = forwardRef<
   HTMLTableRowElement,
@@ -66,7 +39,7 @@ const TableRow = forwardRef<
   <tr
     ref={ref}
     className={twMerge(
-      'border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted',
+      'border-b border-white/10 transition-colors data-[state=selected]:bg-zinc-800',
       className
     )}
     {...props}
@@ -81,13 +54,25 @@ const TableHead = forwardRef<
   <th
     ref={ref}
     className={twMerge(
-      'h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0',
+      'leading-[40px] px-5 py-3 align-middle text-left text-sm font-semibold',
       className
     )}
     {...props}
   />
 ));
 TableHead.displayName = 'TableHead';
+
+const TableBody = forwardRef<
+  HTMLTableSectionElement,
+  HTMLAttributes<HTMLTableSectionElement>
+>(({ className, ...props }, ref) => (
+  <tbody
+    ref={ref}
+    className={twMerge('[&_tr]:text-zinc-300', className)}
+    {...props}
+  />
+));
+TableBody.displayName = 'TableBody';
 
 const TableCell = forwardRef<
   HTMLTableCellElement,
@@ -96,7 +81,7 @@ const TableCell = forwardRef<
   <td
     ref={ref}
     className={twMerge(
-      'p-4 align-middle [&:has([role=checkbox])]:pr-0',
+      'leading-[40px] px-5 py-3 align-middle text-sm',
       className
     )}
     {...props}
@@ -104,17 +89,17 @@ const TableCell = forwardRef<
 ));
 TableCell.displayName = 'TableCell';
 
-const TableCaption = forwardRef<
-  HTMLTableCaptionElement,
-  HTMLAttributes<HTMLTableCaptionElement>
+const TableFooter = forwardRef<
+  HTMLTableSectionElement,
+  HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <caption
+  <tfoot
     ref={ref}
-    className={twMerge('mt-4 text-sm text-muted-foreground', className)}
+    className={twMerge('h-10 sticky bottom-0 [&_tr]:border-0', className)}
     {...props}
   />
 ));
-TableCaption.displayName = 'TableCaption';
+TableFooter.displayName = 'TableFooter';
 
 export const Table = {
   Root: TableRoot,
@@ -124,5 +109,4 @@ export const Table = {
   Head: TableHead,
   Row: TableRow,
   Cell: TableCell,
-  Caption: TableCaption,
 };
