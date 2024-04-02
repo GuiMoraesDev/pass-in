@@ -11,7 +11,7 @@ import { Checkbox } from '../../components/atoms/Checkbox';
 import { Table } from '../../components/atoms/Table';
 
 export default function Participants() {
-  const participants = Array.from({ length: 6 }).map((_, index) => ({
+  const participants = Array.from({ length: 6 }).map(() => ({
     code: '123456',
     name: 'John Doe',
     email: 'example@email.com',
