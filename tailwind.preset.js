@@ -13,8 +13,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        lato: ['Lato', 'sans-serif'],
-        'fira-sans': ['Fira Sans', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
       },
       colors: {
         'plum-50': '#F2E2EC',
