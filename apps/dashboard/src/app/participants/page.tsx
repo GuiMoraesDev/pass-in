@@ -1,4 +1,11 @@
-import { Search, MoreHorizontal } from 'lucide-react';
+import {
+  Search,
+  MoreHorizontal,
+  ChevronsLeft,
+  ChevronLeft,
+  ChevronRight,
+  ChevronsRight,
+} from 'lucide-react';
 
 import { Checkbox } from '../../components/atoms/Checkbox';
 import { Table } from '../../components/atoms/Table';
@@ -22,7 +29,7 @@ export default function Participants() {
           <input
             type="text"
             placeholder="Search participants..."
-            className="flex-1 bg-transparent"
+            className="flex-1 bg-transparent outline-0 h-full"
           />
         </span>
       </header>
@@ -66,6 +73,35 @@ export default function Participants() {
             </Table.Row>
           ))}
         </Table.Body>
+
+        <Table.Footer>
+          <Table.Row>
+            <Table.Cell colSpan={6}>
+              <div className="flex items-center justify-between">
+                <span className="text-sm">Showing 1 to 6 items</span>
+
+                <nav className="inline-flex items-center gap-8">
+                  <span>Page 1 of 11</span>
+
+                  <section className="flex items-center gap-1.5">
+                    <button className="bg-black/20 border border-white/10 rounded-md p-1.5">
+                      <ChevronsLeft className="size-4" />
+                    </button>
+                    <button className="bg-black/20 border border-white/10 rounded-md p-1.5">
+                      <ChevronLeft className="size-4" />
+                    </button>
+                    <button className="bg-black/20 border border-white/10 rounded-md p-1.5">
+                      <ChevronRight className="size-4" />
+                    </button>
+                    <button className="bg-black/20 border border-white/10 rounded-md p-1.5">
+                      <ChevronsRight className="size-4" />
+                    </button>
+                  </section>
+                </nav>
+              </div>
+            </Table.Cell>
+          </Table.Row>
+        </Table.Footer>
       </Table.Root>
     </main>
   );
