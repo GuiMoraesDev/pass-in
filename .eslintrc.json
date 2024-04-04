@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "eslint-plugin-import"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -26,13 +26,6 @@
           {
             "args": "all",
             "argsIgnorePattern": "^_"
-          }
-        ],
-        "@typescript-eslint/consistent-type-imports": [
-          "error",
-          {
-            "fixStyle": "inline-type-imports",
-            "disallowTypeAnnotations": false
           }
         ],
         "import/order": [
