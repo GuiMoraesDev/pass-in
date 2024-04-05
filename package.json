@@ -15,7 +15,8 @@
     "test:unit:all": "nx run-many -t test:unit",
     "test:unit:dashboard": "nx test dashboard --verbose",
     "test:unit:server": "nx test server --verbose",
-    "migrate": "nx run db-schema:migrate",
+    "prisma:migrate": "nx run db-schema:migrate",
+    "prisma:studio": "nx run db-schema:studio",
     "prepare": "husky"
   },
   "private": true,

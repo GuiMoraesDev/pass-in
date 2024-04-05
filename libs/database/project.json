@@ -8,7 +8,7 @@
     "prisma": {
       "command": "prisma",
       "options": {
-        "cwd": "./libs/database"
+        "cwd": "libs/database"
       }
     },
     "migrate": {
@@ -17,10 +17,16 @@
         "cwd": "libs/database"
       }
     },
+    "studio": {
+      "command": "prisma studio",
+      "options": {
+        "cwd": "libs/database"
+      }
+    },
     "generate-types": {
       "command": "prisma generate",
       "options": {
-        "cwd": "./libs/database"
+        "cwd": "libs/database"
       }
     }
   }
