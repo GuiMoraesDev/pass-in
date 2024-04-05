@@ -16,6 +16,7 @@ model Event {
   maxAttendees Int?     @map("max_attendees")
   date         DateTime
   location     String
+  createdAt    DateTime @default(now()) @map("created_at")
 
   @@map("events")
 }
