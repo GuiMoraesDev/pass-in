@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pass-in/prisma-schema": ["libs/schema/prisma/schema.prisma"]
+      "@pass-in/db-schema": ["libs/database/prisma/schema.prisma"]
     }
   },
   "exclude": ["node_modules", "tmp"]
