@@ -1,8 +1,7 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 
-import { type Cat, type CreateCatDto } from '../../dto/types';
-
-import { CatsService } from './cats.service';
+import { type Cat, type CreateCatDto } from '../../../dto/types';
+import { CatsService } from '../provider/cats.service';
 
 @Controller('cats')
 export class CatsController {
