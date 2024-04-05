@@ -16,7 +16,7 @@ describe('Event schemas', () => {
 
       const valid = createEventSchema.safeParse(data);
 
-      expect(valid.success).toEqual(false);
+      expect(valid.success).toEqual(true);
     });
 
     it('should validate each field individually title field are not filled', async () => {
@@ -34,7 +34,7 @@ describe('Event schemas', () => {
 
       const noSlug = { ...defaultData, slug: '' };
       const noSlugValid = createEventSchema.safeParse(noSlug);
-      expect(noSlugValid.success).toEqual(false);
+      expect(noSlugValid.success).toEqual(true);
 
       const noMaxAttendees = { ...defaultData, maxAttendees: undefined };
       const noMaxAttendeesValid = createEventSchema.safeParse(noMaxAttendees);

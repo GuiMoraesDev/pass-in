@@ -15,7 +15,7 @@ describe('CatsService', () => {
 
   describe('findAll', () => {
     it('should return "Hello API"', () => {
-      expect(service.findAll()).toEqual({ message: 'Hello API' });
+      expect(service.findAll()).toEqual([]);
     });
   });
 });

@@ -1,24 +1,31 @@
-import { Test, type TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 
 import { EventsService } from '../provider/events.service';
 
 import { EventsController } from './events.controller';
 
-describe('EventsController', () => {
-  let events: TestingModule;
+describe('Controller', () => {
+  let service: EventsController;
 
   beforeAll(async () => {
-    events = await Test.createTestingModule({
-      imports: [],
+    const events = await Test.createTestingModule({
       controllers: [EventsController],
       providers: [EventsService],
     }).compile();
+
+    service = events.get<EventsController>(EventsController);
   });
 
-  describe('findAll', () => {
-    it('should return "Hello API"', () => {
-      const eventsController = events.get<EventsController>(EventsController);
-      expect(eventsController.findAll()).toEqual({ message: 'Hello API' });
+  describe('create', () => {
+    it('should return "Hello API"', async () => {
+      const response = await service.create({
+        title: 'Controller Event title',
+        maxAttendees: 10,
+        date: new Date('2034-01-01'),
+        location: 'Event location',
+      });
+
+      expect(response).toEqual('Event created');
     });
   });
 });

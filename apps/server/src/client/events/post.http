@@ -1,0 +1,9 @@
+POST http://localhost:4000/api/events
+Content-Type: application/json
+
+{
+  "title": "Cat Show",
+  "date": "2032-12-25",
+  "maxAttendees": 100,
+  "location": "123 Main St, Anytown, USA"
+}

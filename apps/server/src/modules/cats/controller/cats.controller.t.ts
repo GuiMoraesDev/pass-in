@@ -16,9 +16,10 @@ describe('CatsController', () => {
   });
 
   describe('findAll', () => {
-    it('should return "Hello API"', () => {
+    it('should return "Hello API"', async () => {
       const catsController = cats.get<CatsController>(CatsController);
-      expect(catsController.findAll()).toEqual({ message: 'Hello API' });
+      const response = await catsController.findAll();
+      expect(response).toEqual([]);
     });
   });
 });

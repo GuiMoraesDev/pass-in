@@ -1,16 +1,32 @@
 import { Injectable } from '@nestjs/common';
-
-import { type Event } from '../../../dto/types';
+import { Prisma, PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class EventsService {
-  private readonly events: Event[] = [];
+  private prisma: PrismaClient;
 
-  create(event) {
-    this.events.push(event);
+  constructor() {
+    this.prisma = new PrismaClient({
+      log: ['query'],
+    });
+  }
+
+  async create(event: Prisma.EventCreateInput) {
+    try {
+      await this.prisma.event.create({
+        data: {
+          ...event,
+          date: new Date(event.date),
+        },
+      });
+
+      return 'Event created';
+    } catch (error) {
+      throw new Error('Unable to create event');
+    }
   }
 
   findAll() {
-    return this.events;
+    return this.prisma.event.findMany();
   }
 }

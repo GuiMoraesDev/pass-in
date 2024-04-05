@@ -6,7 +6,8 @@ CREATE TABLE "events" (
     "slug" TEXT NOT NULL,
     "max_attendees" INTEGER,
     "date" DATETIME NOT NULL,
-    "location" TEXT NOT NULL
+    "location" TEXT NOT NULL,
+    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- CreateIndex

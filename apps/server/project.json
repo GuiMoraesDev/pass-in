@@ -43,6 +43,30 @@
           }
         ]
       }
+    },
+    "prisma": {
+      "command": "prisma",
+      "options": {
+        "cwd": "apps/server/src/prisma"
+      }
+    },
+    "migrate": {
+      "command": "prisma migrate dev",
+      "options": {
+        "cwd": "apps/server/src/prisma"
+      }
+    },
+    "studio": {
+      "command": "prisma studio",
+      "options": {
+        "cwd": "apps/server/src/prisma"
+      }
+    },
+    "generate-types": {
+      "command": "prisma generate",
+      "options": {
+        "cwd": "apps/server/src/prisma"
+      }
     }
   }
 }

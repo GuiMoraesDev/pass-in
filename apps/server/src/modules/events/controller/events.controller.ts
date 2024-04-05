@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
+import { CreateEventDto, createEventSchema } from '@pass-in/schemas';
 
-import { type Event, type CreateEventDto } from '../../../dto/types';
+import { ZodPipe } from '../../../pipes/zod.pipe';
 import { EventsService } from '../provider/events.service';
 
 @Controller('events')
@@ -8,12 +9,14 @@ export class EventsController {
   constructor(private eventsService: EventsService) {}
 
   @Post()
-  async create(@Body() createEventDto: CreateEventDto) {
-    this.eventsService.create(createEventDto);
+  async create(@Body(new ZodPipe(createEventSchema)) body: CreateEventDto) {
+    const slug = body.title.toLowerCase().replace(/ /g, '-');
+
+    return this.eventsService.create({ ...body, slug });
   }
 
   @Get()
-  async findAll(): Promise<Event[]> {
+  async findAll() {
     return this.eventsService.findAll();
   }
 }
